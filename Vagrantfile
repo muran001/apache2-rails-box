@@ -41,6 +41,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         "recipe[build-essential]",
         "recipe[vim::default]",
         "recipe[git::default]",
+        "recipe[apache2-rails-box::apache2]",
         "recipe[apache2::default]",
         "recipe[passenger_apache2::mod_rails]",
         "recipe[mysql::server]",
