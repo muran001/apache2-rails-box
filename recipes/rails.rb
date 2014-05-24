@@ -29,10 +29,23 @@ rbenv_gem "rails" do
   action :install
 end
 
-
 %w(libsqlite3-dev).each do |pkg|
   package pkg do
     action :install
   end
 end
+
+rbenv_execute 'bundle install' do
+  cwd "/home/vagrant/app/#{node['rails']['app_name']}"
+  command "bundle install"
+end
+rbenv_execute 'rake db:reset' do
+  cwd "/home/vagrant/app/#{node['rails']['app_name']}"
+  command "rake db:reset RAILS_ENV=production"
+end
+rbenv_execute 'rake db:migrate' do
+  cwd "/home/vagrant/app/#{node['rails']['app_name']}"
+  command "rake db:migrate RAILS_ENV=production"
+end
+
 

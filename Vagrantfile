@@ -20,10 +20,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.berkshelf.enabled = true
 
-  #config.vm.synced_folder '../app', '/home/vagrant/app', nfs: true
+  config.vm.synced_folder '../app', '/home/vagrant/app', nfs: true
 
 
   config.vm.provision :chef_solo do |chef|
+    chef.log_level = :debug
     chef.json = {
       mysql: {
         server_root_password: 'rootpass',
@@ -41,15 +42,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         "recipe[build-essential]",
         "recipe[vim::default]",
         "recipe[git::default]",
-        "recipe[apache2-rails-box::apache2]",
-        "recipe[apache2::default]",
-        "recipe[passenger_apache2::mod_rails]",
         "recipe[mysql::server]",
-        "recipe[ruby_build]",
+        "recipe[database::mysql]",
+        "recipe[apache2-rails-box::apache2]",
+        "recipe[apache2-rails-box::mysql]",
+        "recipe[passenger_apache2::mod_rails]",
         "recipe[rbenv::default]",
+        "recipe[apache2-rails-box::rails]",
         "recipe[timezone::default]",
-        "recipe[jenkins::master]",
-        "recipe[apache2-rails-box::rails]"
+        "recipe[jenkins::master]"
     ]
   end
 end
