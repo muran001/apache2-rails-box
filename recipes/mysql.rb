@@ -1,3 +1,5 @@
+include_recipe 'mysql::server'
+
 
 service 'mysql' do
   supports status: true, restart: true, reload: true
@@ -14,6 +16,9 @@ template '/etc/mysql/conf.d/rails_db.cnf' do
   end
 
 end
+
+
+include_recipe 'database::mysql'
 
 
 mysql_connection_info = {

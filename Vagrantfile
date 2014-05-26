@@ -42,13 +42,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         "recipe[build-essential]",
         "recipe[vim::default]",
         "recipe[git::default]",
-        "recipe[mysql::server]",
-        "recipe[database::mysql]",
+#        "recipe[mysql::server]",
+#        "recipe[database::mysql]",
         "recipe[apache2-rails-box::apache2]",
         "recipe[apache2-rails-box::mysql]",
-        "recipe[passenger_apache2::mod_rails]",
-        "recipe[rbenv::default]",
+#        "recipe[rbenv::default]",
         "recipe[apache2-rails-box::rails]",
+#        "recipe[passenger_apache2::mod_rails]",
         "recipe[timezone::default]",
         "recipe[jenkins::master]"
     ]

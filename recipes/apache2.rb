@@ -14,7 +14,6 @@
 #end
 
 
-
 web_app 'rails' do
   server_name "#{node['rails']['server_name']}"
   server_aliases ["www.#{node['rails']['server_name']}"]

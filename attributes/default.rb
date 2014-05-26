@@ -2,6 +2,11 @@
 default['rails']['server_name'] = 'dev.rails'
 default['rails']['app_name']    = 'devise_sample'
 
+
+# passenger attributes
+default['passenger']['max_pool_size'] = 6
+
+
 # mysql attributes
 default['rails']['db_name']     = 'devise_sample_db'
 default['rails']['db_admin']    = 'db_admin'
