@@ -5,7 +5,6 @@ metadata
 cookbook "apt"
 cookbook "build-essential"
 cookbook "apache2"
-cookbook "passenger_apache2", git: 'https://github.com/muran001/passenger_apache2.git'
 cookbook "git"
 cookbook "vim"
 cookbook "mysql"

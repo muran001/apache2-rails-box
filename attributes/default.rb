@@ -1,6 +1,6 @@
 # rails common attributes
 default['rails']['server_name'] = 'dev.rails'
-default['rails']['app_name']    = 'devise_sample'
+default['rails']['app_name']    = ''
 
 
 # passenger attributes

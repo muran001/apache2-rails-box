@@ -1,51 +1,47 @@
-# apache2-rails-box-cookbook
+# apache2-rails-box
 
-TODO: Enter the cookbook description here.
+## Introduction 
+
+This project automates the setup of a development environment for Ruby on Rails.
+
+It consists of 
+- apache2 (passenger)
+- rails (ruby2.1.1)
+- mysql
+- jenkins
+
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+Supported Platforms are below.
 
-## Attributes
+- ubuntu12.04
 
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['apache2-rails-box']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
+## Requirements
+
+- opscode-cookbooks
+-- apt
+-- build-essential
+-- apache2
+-- git
+-- vim
+-- mysql
+-- database
+-- rbenv
+-- ruby_build
+-- timezone
+-- jenkins
+
 
 ## Usage
 
-### apache2-rails-box::default
 
-Include `apache2-rails-box` in your node's `run_list`:
+```
+# first of all
+$ vagrant up
 
-```json
-{
-  "run_list": [
-    "recipe[apache2-rails-box::default]"
-  ]
-}
+# if you want to provision only
+$ vagrant provision
 ```
 
-## Contributing
 
-1. Fork the repository on Github
-2. Create a named feature branch (i.e. `add-new-recipe`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request
-
-## License and Authors
-
-Author:: YOUR_NAME (<YOUR_EMAIL>)
