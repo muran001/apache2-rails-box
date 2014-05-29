@@ -6,13 +6,13 @@ include_recipe "rbenv::rbenv_vars"
 include_recipe "apache2"
 include_recipe "build-essential"
 
-rbenv_ruby "2.1.1" do
-  ruby_version "2.1.1"
+rbenv_ruby "#{node['rails']['ruby_version']}" do
+  ruby_version "#{node['rails']['ruby_version']}"
   global true
 end 
 
 rbenv_gem "bundler" do
-  ruby_version "2.1.1"
+  action :install
 end
 
 if platform?("centos","redhat")
@@ -39,6 +39,11 @@ end
 rbenv_gem "rbenv-rehash" do
   action :install
 end
+
+rbenv_gem "rails_best_practices" do
+  action :install
+end
+
 
 
 rbenv_execute "ruby_bin" do
@@ -112,11 +117,11 @@ rbenv_execute 'bundle install' do
 end
 rbenv_execute 'rake db:reset' do
   cwd "/home/vagrant/app/#{node['rails']['app_name']}"
-  command "rake db:reset RAILS_ENV=production"
+  command "rake db:reset RAILS_ENV=test"
 end
 rbenv_execute 'rake db:migrate' do
   cwd "/home/vagrant/app/#{node['rails']['app_name']}"
-  command "rake db:migrate RAILS_ENV=production"
+  command "rake db:migrate RAILS_ENV=test"
 end
 
 

@@ -50,7 +50,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         "recipe[apache2-rails-box::rails]",
 #        "recipe[passenger_apache2::mod_rails]",
         "recipe[timezone::default]",
-        "recipe[jenkins::master]"
+        "recipe[jenkins::master]",
+        "recipe[apache2-rails-box::jenkins]"
     ]
   end
 end
